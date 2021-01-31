@@ -1,7 +1,7 @@
 # easy-plot-neural #
 MATLAB package for easy plotting of neural raster/psths, and event-aligned averages of an arbitrary continuous variable. 
 
-Add the **+easy** folder to your MATLAB path and use the following functions listed below. See help documentation for each function. 
+Add the **+easy** folder to your MATLAB path and use the following functions listed below. See help documentation for each function. See **example.m** for example use of the RasterPSTH function.
 
 This toolbox requires that you've installed the spikes and [gramm](https://github.com/piermorel/gramm) and [spikes](https://github.com/cortex-lab/spikes) toolboxes.
   
