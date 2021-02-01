@@ -3,9 +3,9 @@ MATLAB package for easy plotting of neural raster/psths, and event-aligned avera
 
 Add the **+easy** folder to your MATLAB path and use the following functions listed below. See help documentation for each function. See **example.m** for example use of the RasterPSTH function.
 
-This toolbox requires that you've installed the spikes and [gramm](https://github.com/piermorel/gramm) and [spikes](https://github.com/cortex-lab/spikes) toolboxes.
-  
-  
+This toolbox requires that you've installed toolboxes:
+* [gramm](https://github.com/piermorel/gramm) 
+* [spikes](https://github.com/cortex-lab/spikes)
   
 ## easy.RasterPSTH() ##
 Allows plotting of spiking Raster and PSTHs for an individual neuron, aligned to multiple events of interest and separated for different conditions. Also permits sorting the rows of the raster plot by some other time variable, and configuration of PSTH binning and (causal) smoothing windows (see help text). Also displays the spiking autocorrelation and average waveform shape on the left, to verify that the recorded neuron is good quality.
