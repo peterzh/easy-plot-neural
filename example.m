@@ -6,8 +6,9 @@
 baselineFiringRate = 2; %hz. 
 eventFiringRate = 10; %hz. Firing rate of neuron after event.
 eventFiringRateDuration = 0.5; %sec duration of firing rate step caused by event
-dt = 0.001; %time step for simulation
-duration = 2000; %sec duration of simulation
+dt = 0.001; %sec, time step for simulation. Must be less than refractoryPeriod
+refractoryPeriod = 0.002; %sec, period after each spike when another spike cannot occur
+duration = 10000; %sec duration of simulation
 eventTimes = linspace( 1, duration-2, 300)'; %list of event times
 
 %Define lambda (firing rate) parameter baseline
@@ -23,10 +24,11 @@ end
 %Generate spike times from poisson process
 spikeTimes = [];
 for t = 1:length(time)
-    count = poissrnd(lambda(t));
-    if count > 0
-        spikeTimes = [spikeTimes; repmat(time(t),count,1)];
-    end
+    %coinflip with p=lambda(t). Concatenate spike time if time since last
+    %spike > refractoryPeriod
+     if binornd(1,lambda(t))==1 && (isempty(spikeTimes) || (time(t)-spikeTimes(end)) > refractoryPeriod )
+        spikeTimes = [spikeTimes; time(t)];
+     end
 end
 
 %Plot raster and PSTH using default parameters

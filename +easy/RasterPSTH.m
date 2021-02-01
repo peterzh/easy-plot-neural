@@ -222,8 +222,7 @@ if ~isempty(kilosortTemplate)
     arrayfun(@(x) xline(thisAx,x,'k:'),[-0.5 0 0.5]);
     xlabel(insetAx,'Time (ms)');
 else
-    delete(grammObject(1,1).facet_axes_handles);
-    delete(grammObject(1).title_axe_handle);
+    set(grammObject(1,1).facet_axes_handles,'xcolor','none','ycolor','none');
 end
 
 %add small text indicating psth parameters
